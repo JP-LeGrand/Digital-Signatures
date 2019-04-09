@@ -1,6 +1,6 @@
 import React from 'react';
 import './Declaration.scss';
-class Information  extends React.PureComponent {
+class Information  extends React.Component {
     state = {  }
 
     SendActon(){
@@ -12,7 +12,7 @@ class Information  extends React.PureComponent {
           <div className="container  pb-5">
           <p className="h3 text-center"><u>INVESTOR DECLARATION</u></p>
           <p> I, the investor, acknowledge that by signing this document, I declare that:</p>  
-          <div class="Terms">
+          <div className="Terms">
                   <ol>
                           <li>
                           I confirm that all information and declarations provided by me in this application form and all supporting

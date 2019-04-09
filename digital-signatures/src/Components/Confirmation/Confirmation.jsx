@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Confirmation  extends React.PureComponent {
+class Confirmation  extends React.Component {
     state = {  }
     render() { 
         return ( <div className="container">
