@@ -12,9 +12,9 @@ class Authentication  extends React.PureComponent {
             <div class="container">
   <form>
     <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">ID Number</label>
+      <label for="IdNumber" class="col-sm-2 col-form-label">ID Number</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail3" placeholder="ID Number"/>
+        <input type="text" class="form-control" id="IdNumber" placeholder="ID Number"/>
       </div>
     </div>
     <div class="form-group row">
