@@ -3,9 +3,18 @@ import './Declaration.scss';
 class Information  extends React.PureComponent {
     state = {  }
 
-    SendActon(){
+    Accept(){
+      window.location="/Confirmation";
+    }
+
+    Reject(){
         window.location="/Confirmation";
     }
+
+    ReportFraud(){
+      window.location="/Confirmation";
+    }
+
     render() { 
         return ( <div className="Declaration">
           <div className="container  pb-5">
@@ -83,13 +92,13 @@ class Information  extends React.PureComponent {
            <div className="footer bg-light">
   <div className="d-flex flex-row justify-content-around">
             <div className="p-2">
-<button type="button" onClick={() => this.SendActon()} className="btn btn-success">Accept</button>
+<button type="button" onClick={() => this.Accept()} className="btn btn-success">Accept</button>
                 </div> 
                 <div className="p-2">
-<button type="button" onClick={() => this.SendActon()} className="btn btn-danger">Reject</button>
+<button type="button" onClick={() => this.Reject()} className="btn btn-danger">Reject</button>
                     </div> 
                     <div className="p-2">
-<button type="button" onClick={() => this.SendActon()} className="btn btn-warning">Report Fraud</button>
+<button type="button" onClick={() => this.ReportFraud()} className="btn btn-warning">Report Fraud</button>
                         </div>      
           </div>
 </div>
