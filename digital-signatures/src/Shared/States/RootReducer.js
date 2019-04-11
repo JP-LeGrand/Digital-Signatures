@@ -3,8 +3,8 @@ import DeclarationReducer from '../../Components/Declaration/DeclarationReducers
 import { combineReducers } from 'redux';
 
 const RootReducer = combineReducers({
-    investorDetails:AuthenticationReducer,
-    termsConditons:DeclarationReducer
+    investorDetails: AuthenticationReducer,
+    termsConditions: DeclarationReducer
 });
 
 export default RootReducer;

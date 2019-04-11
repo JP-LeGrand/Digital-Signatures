@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { createAppState } from './Shared/States/AppState';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Router } from 'react-router-dom';
+import history from './history';
 
 ReactDOM.render(
     <Provider store={createAppState()}>
-        <App />
-    </Provider> 
+        <Router history={history}>
+            <App />
+        </Router>
+    </Provider>
     , document.getElementById('root')
 );
 

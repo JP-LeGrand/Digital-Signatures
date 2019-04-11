@@ -3,53 +3,66 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AuthenticationAction from './AuthenticationAction';
 import { bindActionCreators } from 'redux';
+import queryString from 'query-string';
+import base64 from 'base-64';
 
-class Authentication  extends React.Component {
-  constructor(props){
+class Authentication extends React.Component {
+  constructor(props) {
     super(props);
-    this.state={
-      ID:''
+    this.state = {
+      ID: ''
     }
-    this.handleChange=this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  
   handleChange(event) {
-    this.setState({ID: event.target.value})
+    this.setState({ ID: event.target.value })
   }
-    Authenticate(){  
-      console.log("Authentication Method");
-      this.props.Authenticate(this.state.ID,this.props.identityNumber);
-    }
-  
-    componentWillMount(){
-      this.props.GetDetails();
-    }
 
-    render() { 
-        return ( <div>
-            <div className="container">
-  <form>
-    <div className="form-group row">
-      <label className="col-sm-2 col-form-label">ID Number</label>
-      <div className="col-sm-10">
-        <input type="text" 
-        className="form-control" 
-        id="IdNumber" 
-        placeholder="ID Number"
-        value={this.state.ID}
-        onChange={this.handleChange}/>
-      </div>
-    </div>
-    <div className="form-group row">
-      <div className="offset-sm-2 col-sm-10">
-        <button type="button" className="btn btn-primary" onClick={() => this.Authenticate()}>Authenticate</button>
-      </div>
-    </div>
-  </form>
-</div>
-        </div> );
+  Authenticate() {
+    console.log("Authentication Method");
+    const isValid = this.props.Authenticate(this.state.ID, this.props.identityNumber);
+    if (isValid) {
+      this.props.history.push('/Declaration');
     }
+  }
+
+  DecodeLink(link) {
+    let decodedLink = base64.decode(link);
+    let decodedURI = decodeURIComponent(decodedLink);
+    return decodedURI;
+  }
+
+  componentWillMount() {
+    let params = queryString.parse(this.props.location.search);
+    this.props.GetDetails(this.DecodeLink(params.blobUri));
+  }
+
+  render() {
+
+    return (<div>
+      <div className="container">
+        <form>
+          <div className="form-group row">
+            <label className="col-sm-2 col-form-label">ID Number</label>
+            <div className="col-sm-10">
+              <input type="text"
+                className="form-control"
+                id="IdNumber"
+                placeholder="ID Number"
+                value={this.state.ID}
+                onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group row">
+            <div className="offset-sm-2 col-sm-10">
+              <button type="button" className="btn btn-primary" onClick={() => this.Authenticate()}>Authenticate</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>);
+  }
 }
 
 Authentication.protoTypes = {
@@ -61,7 +74,7 @@ Authentication.protoTypes = {
   entityTypeDescr: PropTypes.string,
   natureOfPersonDescr: PropTypes.string,
   entityPurposeTypeId: PropTypes.string,
-  entityPurposeTypeDescr:PropTypes.string ,
+  entityPurposeTypeDescr: PropTypes.string,
   mancoNumber: PropTypes.number,
   preferredName: PropTypes.string,
   initials: PropTypes.string,
@@ -76,7 +89,7 @@ Authentication.protoTypes = {
   occupationDescr: PropTypes.string,
   maritalStatusDescr: PropTypes.string,
   identityDocumentTypeId: PropTypes.number,
-  identityNumber: PropTypes.string 
+  identityNumber: PropTypes.string
 };
 
 const mapStateToProps = state => ({
@@ -89,7 +102,7 @@ const mapStateToProps = state => ({
   entityTypeDescr: state.investorDetails.entityPurposeTypeDescr,
   natureOfPersonDescr: state.investorDetails.natureOfPersonDescr,
   entityPurposeTypeId: state.investorDetails.entityPurposeTypeId,
-  entityPurposeTypeDescr:state.investorDetails.entityPurposeTypeDescr ,
+  entityPurposeTypeDescr: state.investorDetails.entityPurposeTypeDescr,
   mancoNumber: state.investorDetails.mancoNumber,
   preferredName: state.investorDetails.preferredName,
   initials: state.investorDetails.initials,
@@ -107,9 +120,9 @@ const mapStateToProps = state => ({
   identityNumber: state.investorDetails.identityNumber
 });
 
- const mapActionsToProps = (dispatch) => ({
-  GetDetails: bindActionCreators(AuthenticationAction.GetDetails,dispatch),
+const mapActionsToProps = (dispatch) => ({
+  GetDetails: bindActionCreators(AuthenticationAction.GetDetails, dispatch),
   Authenticate: AuthenticationAction.Authenticate
 });
 
-export default connect(mapStateToProps,mapActionsToProps)(Authentication);
+export default connect(mapStateToProps, mapActionsToProps)(Authentication);

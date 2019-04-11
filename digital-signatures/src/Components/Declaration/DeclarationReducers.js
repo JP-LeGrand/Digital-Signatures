@@ -1,17 +1,19 @@
-import InitialState from '../../Shared/States/InitialState';
-import * as Types from './DeclarationActionTypes';
+import InitialState from "../../Shared/States/InitialState";
+import * as Types from "./DeclarationActionTypes";
 
-const AuthenticationReducer = (state = InitialState.termsConditons, action) => {
+const DeclarationReducer = (
+    state = InitialState.termsConditions,
+    action
+) => {
     switch (action.type) {
-            case Types.GET_TERM_CONDITONS:
-            console.log("Investor Details: ",action.payload);
-            return{
+        case Types.GET_TERM_CONDITONS:
+            return {
                 ...state,
-                ...action.payload
-            }
+                termsConditions: action.payload.data
+            };
         default:
-        return state;
+            return state;
     }
 };
 
-export default AuthenticationReducer;
+export default DeclarationReducer;
