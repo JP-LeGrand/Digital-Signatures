@@ -1,5 +1,6 @@
 import * as Types from './AuthenticationActionTypes';
 import Axios from 'axios';
+import { toast } from 'mdbreact';
 
 export const GetDetails = (link) => {
     return function (dispatch) {
@@ -21,15 +22,24 @@ export const GetDetails = (link) => {
 //TODO: Validation for empty string
 export const Authenticate = (IdNumber, RealIdNumber) => {
     if (IdNumber !== RealIdNumber) {
-        console.log("Invalid Id Number");
+        toast.error("Invalid Id Number",{
+            autoClose:3000
+        } );
+        toast.warn("You have 2 more tries to authenticate",{
+            autoClose:3000
+        } );
         return false;
     }
     else if (IdNumber === ' ') {
-        console.log("Empty String!");
+        toast.error("Empty String!",{
+            autoClose:3000
+        } );
+        toast.warn("You have 2 more tries to authenticate",{
+            autoClose:3000
+        } );
         return false;
     }
     else {
-        console.log("Valid Id Number");
         return true;
     }
 }
