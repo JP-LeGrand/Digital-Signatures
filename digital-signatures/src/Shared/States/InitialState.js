@@ -25,6 +25,10 @@ const InitialState = {
         maritalStatusDescr: '',
         identityDocumentTypeId: 0,
         identityNumber: ''
+        },
+
+        termsConditons:{
+            
         }
 }
 

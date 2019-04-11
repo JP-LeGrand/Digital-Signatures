@@ -1,6 +1,11 @@
 import React from 'react';
 import './Declaration.scss';
-class Information  extends React.Component {
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as DeclarationActions from './DeclarationActions';
+import { bindActionCreators } from 'redux';
+
+class Declaration  extends React.Component {
     state = {  }
 
     SendActon(){
@@ -98,5 +103,16 @@ class Information  extends React.Component {
         </div> );
     }
 }
- 
-export default Information;
+
+Declaration.protoTypes={
+}
+
+const mapStateToProps = state => ({
+});
+
+const mapActionsToProps = (dispatch) => ({
+  GetInvestorRespone: DeclarationActions.GetInvestorRespone,
+  GetTerms_Condition: bindActionCreators(DeclarationActions.GetTerms_Condition,dispatch) 
+});
+
+export default connect(mapStateToProps,mapActionsToProps)(Declaration);

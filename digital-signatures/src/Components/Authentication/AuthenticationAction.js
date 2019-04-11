@@ -1,5 +1,8 @@
 import * as Types from './AuthenticationActionTypes';
 import Axios from 'axios';
+import base64 from 'base-64';
+import Substring from 'react-substring';
+
 
 export const GetDetails = () => {
     return function(dispatch){
@@ -31,6 +34,19 @@ export const Authenticate= (IdNumber, RealIdNumber) =>{
         console.log("Valid Id Number");
         window.location="/Declaration";
     }
+}
+
+/**
+ * 
+ * @param link this will be the encrypted link sent to us, that needs to be decoded
+ * It will then be passed to GetDetails function
+ * 
+ */
+export const GetLink= (link)=>{
+    let decodedLink= base64.decode(link.substring(63));
+    let decodedURI= decodeURI(decodedLink);
+
+    //Below I will pass the decoded URI into the GetDetails function
 }
 
 
