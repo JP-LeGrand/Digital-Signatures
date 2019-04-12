@@ -22,21 +22,21 @@ export const GetDetails = (link) => {
 //TODO: Validation for empty string
 export const Authenticate = (IdNumber, RealIdNumber) => {
     if (IdNumber !== RealIdNumber) {
-        toast.error("Invalid Id Number",{
-            autoClose:3000
-        } );
-        toast.warn("You have 2 more tries to authenticate",{
-            autoClose:3000
-        } );
+        toast.error("Invalid Id Number", {
+            autoClose: 3000
+        });
+        toast.warn("You have 2 more tries to authenticate", {
+            autoClose: 3000
+        });
         return false;
     }
     else if (IdNumber === ' ') {
-        toast.error("Empty String!",{
-            autoClose:3000
-        } );
-        toast.warn("You have 2 more tries to authenticate",{
-            autoClose:3000
-        } );
+        toast.error("Empty String!", {
+            autoClose: 3000
+        });
+        toast.warn("You have 2 more tries to authenticate", {
+            autoClose: 3000
+        });
         return false;
     }
     else {

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Declaration.scss';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as DeclarationActions from './DeclarationActions';
 import { bindActionCreators } from 'redux';
@@ -36,7 +35,7 @@ class Declaration extends React.Component {
       <div className="container  pb-5">
         <p className="h3 text-center"><u>INVESTOR DECLARATION</u></p>
         <p> I, the investor, acknowledge that by signing this document, I declare that:</p>
-        <div dangerouslySetInnerHTML={{ __html: this.props.termsConditions.termsConditions }}>
+        <div dangerouslySetInnerHTML={{ __html: this.props.termsConditions.data }}>
         </div>
       </div>
       <div className="footer bg-light">
@@ -55,10 +54,6 @@ class Declaration extends React.Component {
     </div>);
   }
 }
-
-Declaration.protoTypes = {
-  termsConditions: PropTypes.string
-};
 
 const mapStateToProps = state => ({
   identityNumber: state.investorDetails.identityNumber,

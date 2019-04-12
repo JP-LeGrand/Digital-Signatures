@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AuthenticationAction from './AuthenticationAction';
 import { bindActionCreators } from 'redux';
@@ -111,33 +110,6 @@ class Authentication extends React.Component {
     );
   }
 }
-
-Authentication.protoTypes = {
-  investorTypeDescr: PropTypes.string,
-  surname: PropTypes.string,
-  titleId: PropTypes.number,
-  titleDesc: PropTypes.string,
-  firstNames: PropTypes.string,
-  entityTypeDescr: PropTypes.string,
-  natureOfPersonDescr: PropTypes.string,
-  entityPurposeTypeId: PropTypes.string,
-  entityPurposeTypeDescr: PropTypes.string,
-  mancoNumber: PropTypes.number,
-  preferredName: PropTypes.string,
-  initials: PropTypes.string,
-  gender: PropTypes.string,
-  language: PropTypes.string,
-  industryNo: PropTypes.number,
-  industryDescr: PropTypes.string,
-  purposeInvNo: PropTypes.string,
-  purposeInvDescr: PropTypes.string,
-  contactPerson: PropTypes.string,
-  occupationId: PropTypes.number,
-  occupationDescr: PropTypes.string,
-  maritalStatusDescr: PropTypes.string,
-  identityDocumentTypeId: PropTypes.number,
-  identityNumber: PropTypes.string
-};
 
 const mapStateToProps = state => ({
 

@@ -9,7 +9,7 @@ const DeclarationReducer = (
         case Types.GET_TERM_CONDITONS:
             return {
                 ...state,
-                termsConditions: action.payload.data
+                ...action.payload
             };
         default:
             return state;

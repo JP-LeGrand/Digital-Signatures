@@ -16,9 +16,9 @@ export const GetInvestorRespone = (ActionType, InvestorID) => {
         .then(response => {
             return true;
         }).catch(error => {
-            toast.error("Response has not been captured: "+ error,{
-                autoClose:3000
-            } );
+            toast.error("Response has not been captured: " + error, {
+                autoClose: 3000
+            });
         });
 
 }
@@ -36,10 +36,10 @@ export const GetTerms_Condition = () => {
                     type: Types.GET_TERM_CONDITONS,
                     payload: response
                 });
-            }).catch(error=>{
-                toast.error("An error has occured on the server, we are unable to retrieve the terms and conditions: "+ error,{
-                    autoClose:3000
-                } );
+            }).catch(error => {
+                toast.error("An error has occured on the server, we are unable to retrieve the terms and conditions: " + error, {
+                    autoClose: 3000
+                });
             });
     }
 }
