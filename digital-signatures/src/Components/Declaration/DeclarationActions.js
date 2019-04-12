@@ -12,14 +12,14 @@ export const GetInvestorRespone = (ActionType, InvestorID) => {
         Answer: ActionType,
         Identification: InvestorID
     };
-    Axios.post('https://fndigisigtest0001.azurewebsites.net/api/fndeodstest0001?code=REW0FWuUmVieHhoFb83q/knTIh5M8KJBuHjId5tHSguUD9voR9KQGg==', InformationPassed, config)
+    Axios.post('https://fndigisigtest0001.azurewebsites.net/api/PushMessageToQueue?code=EkaOP2oahBHAfSU0FNZisxMYSCAiaMDNRD9HygcN8D0MEqxVWqF1Qg==', InformationPassed, config)
         .then(response => {
             return true;
         }).catch(error => {
             toast.error("Response has not been captured: "+ error,{
                 autoClose:3000
             } );
-        })
+        });
 
 }
 
