@@ -367,4 +367,6 @@ ASALocalRun/
 # Ignore all local history of files
 .history
 
+#production
+build/
 # End of https://www.gitignore.io/api/visualstudiocode
