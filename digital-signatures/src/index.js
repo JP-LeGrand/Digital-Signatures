@@ -8,6 +8,7 @@ import { createAppState } from './Shared/States/AppState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router } from 'react-router-dom';
 import history from './history';
+import 'roboto-fontface';
 
 ReactDOM.render(
     <Provider store={createAppState()}>
