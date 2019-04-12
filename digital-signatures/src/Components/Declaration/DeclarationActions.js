@@ -1,8 +1,8 @@
 import * as Types from './DeclarationActionTypes';
 import Axios from 'axios';
+import { toast } from 'mdbreact';
 
 export const GetInvestorRespone = (ActionType, InvestorID) => {
-    console.log("Investor Resposne");
     const config = {
         headers: {
             'content-type': 'application/json'
@@ -12,13 +12,14 @@ export const GetInvestorRespone = (ActionType, InvestorID) => {
         Answer: ActionType,
         Identification: InvestorID
     };
-    Axios.post('https://fndigisigtest0001.azurewebsites.net/api/fndeodstest0001?code=REW0FWuUmVieHhoFb83q/knTIh5M8KJBuHjId5tHSguUD9voR9KQGg==', InformationPassed, config)
+    Axios.post('https://fndigisigtest0001.azurewebsites.net/api/PushMessageToQueue?code=EkaOP2oahBHAfSU0FNZisxMYSCAiaMDNRD9HygcN8D0MEqxVWqF1Qg==', InformationPassed, config)
         .then(response => {
-            console.log("API RESPONSE: ", response);
             return true;
         }).catch(error => {
-            console.log("Error", error);
-        })
+            toast.error("Response has not been captured: "+ error,{
+                autoClose:3000
+            } );
+        });
 
 }
 
@@ -31,11 +32,14 @@ export const GetTerms_Condition = () => {
         };
         Axios.get('https://fndigisigtest0001.azurewebsites.net/api/GetTemplate?code=Y5CDDlejIfU8ejqQshKdQceGVrDnOtWdoGJqxHt2TlUeoT6fGWPyKg==&version=V1', config)
             .then(response => {
-                console.log("Template", response);
                 dispatch({
                     type: Types.GET_TERM_CONDITONS,
                     payload: response
                 });
+            }).catch(error=>{
+                toast.error("An error has occured on the server, we are unable to retrieve the terms and conditions: "+ error,{
+                    autoClose:3000
+                } );
             });
     }
 }

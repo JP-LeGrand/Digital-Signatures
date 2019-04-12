@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as AuthenticationAction from './AuthenticationAction';
 import { bindActionCreators } from 'redux';
 import queryString from 'query-string';
 import base64 from 'base-64';
+import { ToastContainer, toast } from 'mdbreact';
+import './Authentication.scss';
 
 class Authentication extends React.Component {
   constructor(props) {
@@ -15,12 +17,14 @@ class Authentication extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+
+
   handleChange(event) {
+    if (event.which === 13) event.preventDefault();
     this.setState({ ID: event.target.value })
   }
 
   Authenticate() {
-    console.log("Authentication Method");
     const isValid = this.props.Authenticate(this.state.ID, this.props.identityNumber);
     if (isValid) {
       this.props.history.push('/Declaration');
@@ -28,8 +32,13 @@ class Authentication extends React.Component {
   }
 
   DecodeLink(link) {
-    let decodedLink = base64.decode(link);
-    let decodedURI = decodeURIComponent(decodedLink);
+    var decodedLink, decodedURI;
+    try {
+      decodedLink = base64.decode(link);
+      decodedURI = decodeURIComponent(decodedLink);
+    } catch (err) {
+      toast.error("Inavlid LINK, Redirect to link sent via sms/email")
+    }
     return decodedURI;
   }
 
@@ -37,31 +46,68 @@ class Authentication extends React.Component {
     let params = queryString.parse(this.props.location.search);
     this.props.GetDetails(this.DecodeLink(params.blobUri));
   }
-
   render() {
 
-    return (<div>
-      <div className="container">
-        <form>
-          <div className="form-group row">
-            <label className="col-sm-2 col-form-label">ID Number</label>
-            <div className="col-sm-10">
-              <input type="text"
-                className="form-control"
-                id="IdNumber"
-                placeholder="ID Number"
-                value={this.state.ID}
-                onChange={this.handleChange} />
-            </div>
+    return (
+      <Fragment>
+        <ToastContainer
+          hideProgressBar={true}
+          newestOnTop={true}
+          autoClose={5000}
+        />
+        <div className="Authentication">
+          <div className="container">
+            <form onKeyPress={this.handleChange}>
+              <div className="form-group rectangle mx-auto">
+                <div className="row">
+                  <div className="col">
+                    <div className="row">
+                      <div className="col">
+                        <div className="row">
+                          <div className="col-sm-4 mx-auto m-3">
+                            <span className="please-enter-your-id-copy">Please enter your ID number</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <div className="row">
+                          <div className="col-sm-4 mx-auto">
+                            <input type="text"
+                              className="form-control rectangle-copy"
+                              id="IdNumber"
+                              placeholder="ID Number"
+                              value={this.state.ID}
+                              onChange={this.handleChange} />
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <div className="form-group">
+                          <div className="row">
+                            <div className=" col-sm-4 mx-auto m-3">
+                              <button type="button"
+                                className="btn rectangle-copy-2"
+                                onClick={() => this.Authenticate()}><span className="submit-copy">SUBMIT</span></button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-          <div className="form-group row">
-            <div className="offset-sm-2 col-sm-10">
-              <button type="button" className="btn btn-primary" onClick={() => this.Authenticate()}>Authenticate</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>);
+        </div>
+      </Fragment>
+    );
   }
 }
 
