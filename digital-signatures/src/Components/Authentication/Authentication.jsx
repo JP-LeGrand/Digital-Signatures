@@ -29,6 +29,7 @@ class Authentication extends React.Component {
     if (isValid) {
       this.props.history.push('/Declaration');
     }
+    return isValid;
   }
 
   DecodeLink(link) {
