@@ -7,13 +7,14 @@ const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
+                <Route path="/" exact component={Authentication} />
                 <Route path="/Authentication" exact component={Authentication} />
                 <Route path="/Declaration" exact component={Declaration} />
                 <Route path="/Confirmation" exact component={Confirmation} />
-                <Route render={() => <Redirect to="/Authentication" />} />
-                </Switch>
+                <Route render={() => <Redirect to="/" />} />
+            </Switch>
         </BrowserRouter>
-        );
-    };
+    );
+};
 
-    export default Routes;
+export default Routes;

@@ -1,31 +1,34 @@
 const InitialState = {
-
     investorDetails: {
-        investorTypeDescr: '',
-        surname: '',
+        investorTypeDescr: "",
+        surname: "",
         titleId: 0,
-        titleDesc: '',
-        firstNames: '',
-        entityTypeDescr: '',
-        natureOfPersonDescr: '',
-        entityPurposeTypeId: '',
-        entityPurposeTypeDescr:'' ,
+        titleDesc: "",
+        firstNames: "",
+        entityTypeDescr: "",
+        natureOfPersonDescr: "",
+        entityPurposeTypeId: "",
+        entityPurposeTypeDescr: "",
         mancoNumber: 0,
-        preferredName: '',
-        initials: '',
-        gender: '',
-        language: '',
+        preferredName: "",
+        initials: "",
+        gender: "",
+        language: "",
         industryNo: 0,
-        industryDescr: '',
+        industryDescr: "",
         purposeInvNo: 0,
-        purposeInvDescr: '',
-        contactPerson: '',
+        purposeInvDescr: "",
+        contactPerson: "",
         occupationId: 0,
-        occupationDescr: '',
-        maritalStatusDescr: '',
+        occupationDescr: "",
+        maritalStatusDescr: "",
         identityDocumentTypeId: 0,
-        identityNumber: ''
-        }
-}
+        identityNumber: ""
+    },
+
+    termsConditions: {
+        termsConditions: ""
+    }
+};
 
 export default InitialState;

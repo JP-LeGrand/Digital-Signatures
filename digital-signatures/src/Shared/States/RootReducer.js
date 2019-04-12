@@ -1,9 +1,10 @@
-/* 
-This class will be used to combine all the reducers in the application
-*/
-
+import AuthenticationReducer from '../../Components/Authentication/AuthenticationReducers';
+import DeclarationReducer from '../../Components/Declaration/DeclarationReducers';
 import { combineReducers } from 'redux';
 
-const RootReducer = combineReducers({});
+const RootReducer = combineReducers({
+    investorDetails: AuthenticationReducer,
+    termsConditions: DeclarationReducer
+});
 
 export default RootReducer;
