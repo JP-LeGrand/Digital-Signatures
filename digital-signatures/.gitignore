@@ -357,6 +357,7 @@ ASALocalRun/
 # Edit at https://www.gitignore.io/?templates=visualstudiocode
 
 ### VisualStudioCode ###
+.vs/*
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -368,5 +369,5 @@ ASALocalRun/
 .history
 
 #production
-build/
+build/*
 # End of https://www.gitignore.io/api/visualstudiocode
