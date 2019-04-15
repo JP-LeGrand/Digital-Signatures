@@ -61,22 +61,24 @@ class Authentication extends React.Component {
               <div className="form-group">
                 <div className="row">
                   <div className="col">
-                    <div className="rectangle">
+                    <div className="rectangle d-flex align-items-center justify-content-center">
                       <div className="row">
                         <div className="col">
                           <div className="row">
                             <div className="col">
                               <div className="row">
-                                <div className="col-sm-4 mx-auto m-3 ml-5 pl-5">
-                                  <span className="please-enter-your-id-copy m-3">
-                                    Please enter your ID number
-                                  </span>
+                                <div className="col">
+                                  <div className="m-3">
+                                    <span className="please-enter-your-id-copy">
+                                      Please enter your ID number
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div className="row">
-                            <div className="col-sm-4 mx-auto">
+                            <div className="col mx-auto">
                               <input
                                 type="text"
                                 className="form-control rectangle-copy"
@@ -91,7 +93,7 @@ class Authentication extends React.Component {
                             <div className="col">
                               <div className="form-group">
                                 <div className="row">
-                                  <div className=" col-sm-4 mx-auto m-3">
+                                  <div className=" col mx-auto m-3">
                                     <button
                                       type="button"
                                       className="btn rectangle-copy-2"
