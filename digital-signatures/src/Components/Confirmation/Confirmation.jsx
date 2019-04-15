@@ -1,6 +1,6 @@
 import React from "react";
 import "./Confirmation.scss";
-import Success from '../../Images/Silica_success_icon-01.svg';
+import Success from "../../Images/Silica_success_icon-01.svg";
 import Success2 from "../../Images/Silica_success_icon-02.svg";
 class Confirmation extends React.Component {
   state = {};
