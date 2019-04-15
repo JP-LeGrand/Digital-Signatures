@@ -10,10 +10,10 @@ class Confirmation extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <div className="rectangle text-center">
+              <div className="rectangle text-center d-flex align-items-center justify-content-center">
                 <div className="row">
                   <div className="col">
-                    <div className="row pt-5 m-3">
+                    <div className="row">
                       <div className="col">
                         <img
                           className="oval-copy-2"
@@ -22,7 +22,7 @@ class Confirmation extends React.Component {
                         />
                       </div>
                     </div>
-                    <div className="row m-3">
+                    <div className="row ">
                       <div className="col">
                         <img
                           className="sml-screen"
