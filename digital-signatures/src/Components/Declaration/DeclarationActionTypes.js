@@ -1,0 +1,1 @@
+export const GET_TERM_CONDITONS = "GET_TERM_CONDITONS";

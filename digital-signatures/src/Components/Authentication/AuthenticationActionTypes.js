@@ -1,0 +1,2 @@
+export const AUTHENTICATE = 'AUTHENTICATE ',
+    GET_DETAILS = 'GET_DETAILS';
