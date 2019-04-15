@@ -112,30 +112,6 @@ class Authentication extends React.Component {
 }
 
 const mapStateToProps = state => ({
-
-  investorTypeDescr: state.investorDetails.investorTypeDescr,
-  surname: state.investorDetails.surname,
-  titleId: state.investorDetails.titleId,
-  titleDesc: state.investorDetails.titleDesc,
-  firstNames: state.investorDetails.firstNames,
-  entityTypeDescr: state.investorDetails.entityPurposeTypeDescr,
-  natureOfPersonDescr: state.investorDetails.natureOfPersonDescr,
-  entityPurposeTypeId: state.investorDetails.entityPurposeTypeId,
-  entityPurposeTypeDescr: state.investorDetails.entityPurposeTypeDescr,
-  mancoNumber: state.investorDetails.mancoNumber,
-  preferredName: state.investorDetails.preferredName,
-  initials: state.investorDetails.initials,
-  gender: state.investorDetails.gender,
-  language: state.investorDetails.language,
-  industryNo: state.investorDetails.industryNo,
-  industryDescr: state.investorDetails.industryDescr,
-  purposeInvNo: state.investorDetails.purposeInvNo,
-  purposeInvDescr: state.investorDetails.purposeInvDescr,
-  contactPerson: state.investorDetails.contactPerson,
-  occupationId: state.investorDetails.occupationId,
-  occupationDescr: state.investorDetails.occupationDescr,
-  maritalStatusDescr: state.investorDetails.maritalStatusDescr,
-  identityDocumentTypeId: state.investorDetails.identityDocumentTypeId,
   identityNumber: state.investorDetails.identityNumber
 });
 

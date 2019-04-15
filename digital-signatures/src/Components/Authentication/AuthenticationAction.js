@@ -30,7 +30,7 @@ export const Authenticate = (IdNumber, RealIdNumber) => {
         });
         return false;
     }
-    else if (IdNumber === ' ') {
+    else if (IdNumber === '') {
         toast.error("Empty String!", {
             autoClose: 3000
         });
