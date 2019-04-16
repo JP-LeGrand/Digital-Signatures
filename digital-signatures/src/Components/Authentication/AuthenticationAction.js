@@ -22,7 +22,7 @@ export const GetDetails = (link) => {
 //TODO: Validation for empty string
 export const Authenticate = (IdNumber, RealIdNumber) => {
     if (IdNumber !== RealIdNumber) {
-        toast.error("Invalid Id Number", {
+        toast.error("Unable to Submit. This ID number is invalid, please make sure you typed it correctly", {
             autoClose: 3000
         });
         toast.warn("You have 2 more tries to authenticate", {
@@ -31,7 +31,7 @@ export const Authenticate = (IdNumber, RealIdNumber) => {
         return false;
     }
     else if (IdNumber === '') {
-        toast.error("Empty String!", {
+        toast.error("Unable to Submit. This ID number is invalid, please make sure you typed it correctly", {
             autoClose: 3000
         });
         toast.warn("You have 2 more tries to authenticate", {
