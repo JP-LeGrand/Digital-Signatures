@@ -3,9 +3,11 @@ import "./Declaration.scss";
 import { connect } from "react-redux";
 import * as DeclarationActions from "./DeclarationActions";
 import { bindActionCreators } from "redux";
-import htmlContent from './terms-conditions-1.html';
 class Declaration extends React.Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.html= require('../StaticTemplate/terms-conditions-v'+1+'.html');    
+  }
 
   ReportFraud() {
     this.props.GetInvestorRespone("Fraud", this.props.identityNumber);
@@ -44,7 +46,7 @@ class Declaration extends React.Component {
               <div className="card-body">
                 <div className="row">
                   <div className="col">
-                    <div className="scroll" dangerouslySetInnerHTML={{__html: htmlContent}}>
+                    <div className="scroll" dangerouslySetInnerHTML={{__html: this.html}}>
                     </div>
                   </div>
                 </div>
