@@ -1,9 +1,89 @@
 .Declaration {
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+  .rectangle-parent {
+    position: absolute;
+    top: 10vh;
+    height: 80vh;
     width: 100%;
-    text-align: center;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 1px 4px 9px 0 rgba(0, 0, 0, 0.5);
+  }
+  .rectangle {
+    height: 40px;
+    width: 152px;
+    border-radius: 5px;
+    background-color: #3954b2;
+    color: #ffffff;
+    border: none;
+  }
+  .card-header {
+    border: none;
+  }
+  .terms-and-conditions {
+    height: 20px;
+    width: 195px;
+    color: #1c1c1c;
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1.22px;
+    line-height: 20px;
+  }
+  .action {
+    height: 16px;
+    width: 60px;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.01px;
+    line-height: 16px;
+  }
+  .scroll {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .rectangle-parent {
+      position: absolute;
+      top: 0vh;
+      height: 100vh;
+      width: 100%;
+      border: none;
+      background-color: #ffffff;
+      box-shadow: none;
+    }
+    .terms-and-conditions {
+      color: #1c1c1c;
+      font-family: Roboto;
+      font-size: 13px !important;
+      font-weight: bold;
+      letter-spacing: 1.22px;
+      line-height: 20px;
+    }
+    .rectangle {
+      height: 30px !important;
+      width: 100px !important;
+      border-radius: 3px;
+      background-color: #3954b2;
+      color: #ffffff;
+      border: none;
+    }
+    .action {
+      color: #ffffff;
+      font-family: Roboto;
+      font-size: 12px !important;
+      font-weight: bold;
+      letter-spacing: 1.01px;
+      line-height: 16px;
+    }
+    .scroll {
+      max-height: 60vh !important;
+      overflow-y: auto;
+    }
+    .tnc {
+      font-size: 12px;
+    }
   }
 }
