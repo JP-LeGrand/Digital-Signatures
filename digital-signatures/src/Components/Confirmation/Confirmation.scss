@@ -31,7 +31,6 @@
     text-align: center;
   }
   .btn-primary {
-    margin-top: 94px;
     border-radius: 5px;
     width: 153px;
     background-color: #3954b2 !important;
@@ -40,7 +39,7 @@
   .sml-screen {
     display: none;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1100px) {
     .rectangle {
       position: absolute;
       height: 100vh;
@@ -72,7 +71,6 @@
       margin: auto;
     }
     .btn-primary {
-      margin-top: 94px;
       border-radius: 5px;
       width: 153px;
       background-color: #ffffff !important;
