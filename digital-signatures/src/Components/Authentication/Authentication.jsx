@@ -123,7 +123,7 @@ class Authentication extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  identityNumber: state.investorDetails.identityNumber
+  identityNumber: state.investorDetails.AuthSecret
 });
 
 const mapActionsToProps = dispatch => ({

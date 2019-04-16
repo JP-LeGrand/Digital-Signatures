@@ -2,11 +2,10 @@ import React from "react";
 import "./Declaration.scss";
 import { connect } from "react-redux";
 import * as DeclarationActions from "./DeclarationActions";
-import { bindActionCreators } from "redux";
 class Declaration extends React.Component {
   constructor(props) {
     super(props);
-    this.html= require('../StaticTemplate/terms-conditions-v'+1+'.html');    
+    this.html= require('../StaticTemplate/terms-conditions-v'+this.props.version+'.html');    
   }
 
   ReportFraud() {
@@ -24,14 +23,12 @@ class Declaration extends React.Component {
     this.props.history.push("/Confirmation");
   }
 
-  componentWillMount() {
-    this.props.GetTerms_Condition();
-  }
   htmlDecode(input) {
     var e = document.createElement("div");
     e.innerHTML = input;
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   }
+
   render() {
     return (
       <div className="Declaration">
@@ -106,16 +103,12 @@ class Declaration extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  identityNumber: state.investorDetails.identityNumber,
-  termsConditions: state.termsConditions
+  identityNumber: state.investorDetails.Data.investorDetails.identityNumber,
+  version:state.investorDetails.Version
 });
 
 const mapActionsToProps = dispatch => ({
-  GetInvestorRespone: DeclarationActions.GetInvestorRespone,
-  GetTerms_Condition: bindActionCreators(
-    DeclarationActions.GetTerms_Condition,
-    dispatch
-  )
+  GetInvestorRespone: DeclarationActions.GetInvestorRespone
 });
 
 export default connect(

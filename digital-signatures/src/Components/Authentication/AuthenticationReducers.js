@@ -6,7 +6,7 @@ const AuthenticationReducer = (state = InitialState.investorDetails, action) => 
         case Types.GET_DETAILS:
             return {
                 ...state,
-                ...action.payload.investorDetails
+                ...action.payload
             }
         default:
             return state;

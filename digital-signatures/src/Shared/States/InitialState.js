@@ -1,7 +1,5 @@
 const InitialState = {
-    investorDetails: {},
-
-    termsConditions: { }
+    investorDetails: {}
 };
 
 export default InitialState;
