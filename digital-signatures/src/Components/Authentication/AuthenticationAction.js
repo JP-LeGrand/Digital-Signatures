@@ -19,7 +19,6 @@ export const GetDetails = (link) => {
     }
 }
 
-//TODO: Validation for empty string
 export const Authenticate = (IdNumber, RealIdNumber) => {
     if (IdNumber !== RealIdNumber) {
         toast.error("Unable to Submit. This ID number is invalid, please make sure you typed it correctly", {
